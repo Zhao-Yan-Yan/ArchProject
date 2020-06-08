@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/userCenterBackground"
+    android:orientation="vertical"
+    android:padding="@dimen/common_margin"
+    tools:context=".ui.notifications.NotificationsFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_user_center_round_card"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+        <com.zy.application.widget.UserCenterItemView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:uv_icon="@mipmap/ic_user_center_order"
+            app:uv_title="购物车1" />
+
+        <com.zy.application.widget.UserCenterItemView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:uv_extContent="注册得好礼"
+            app:uv_icon="@mipmap/ic_user_center_order"
+            app:uv_title="购物车2" />
+
+        <com.zy.application.widget.UserCenterItemView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:uv_icon="@mipmap/ic_user_center_order"
+            app:uv_title="购物车3" />
+
+        <com.zy.application.widget.UserCenterItemView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:uv_icon="@mipmap/ic_user_center_order"
+            app:uv_title="购物车3" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_margin"
+        android:background="@drawable/shape_user_center_round_card"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+        <com.zy.application.widget.UserCenterItemView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:uv_icon="@mipmap/ic_user_center_order"
+            app:uv_title="购物车1" />
+
+        <com.zy.application.widget.UserCenterItemView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:uv_extContent="注册得好礼"
+            app:uv_extContentColor="@android:color/holo_red_dark"
+            app:uv_icon="@mipmap/ic_user_center_order"
+            app:uv_showMessagePoint="true"
+            app:uv_title="购物车2" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="UserCenterItemView">
+        <attr name="uv_title" format="string" />
+        <attr name="uv_extContent" format="string" />
+        <attr name="uv_showMessagePoint" format="boolean" />
+        <attr name="uv_showSplitLine" format="boolean" />
+        <attr name="uv_icon" format="reference" />
+        <attr name="uv_extContentColor" format="color" />
+    </declare-styleable>
+</resources>
