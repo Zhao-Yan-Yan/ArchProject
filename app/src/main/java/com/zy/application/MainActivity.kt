@@ -14,7 +14,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         viewBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
-        val appBarConfiguration = AppBarConfiguration(
+
+        viewBinding.navView.addItem("首页","lottie/tab_home.json")
+        viewBinding.navView.addItem("分类","lottie/tab_classify.json")
+        viewBinding.navView.addItem("发现","lottie/tab_account.json")
+        viewBinding.navView.addItem("学习","lottie/tab_course.json")
+        viewBinding.navView.addItem("账号","lottie/tab_note.json")
+        viewBinding.navView.addItem("账号","lottie/tab_note.json")
+      /*  val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.navigation_home,
                 R.id.navigation_dashboard,
@@ -25,6 +32,6 @@ class MainActivity : AppCompatActivity() {
             val navController = findNavController(R.id.nav_host_fragment)
             setupActionBarWithNavController(navController, appBarConfiguration)
             it.navView.setupWithNavController(navController)
-        }
+        }*/
     }
 }
