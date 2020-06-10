@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:internal="http://schemas.android.com/apk/prv/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_196"
+    android:layout_marginStart="@dimen/dp_15"
+    android:layout_marginEnd="@dimen/dp_15"
+    android:layout_marginBottom="@dimen/dp_20"
+    >
+    <!--android:background="@drawable/ic_home_photo_bg1"
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_photo_cover1"
+        app:layout_constraintBottom_toBottomOf="0"
+        app:layout_constraintLeft_toLeftOf="0"
+        app:layout_constraintRight_toRightOf="0"
+        app:layout_constraintTop_toTopOf="0" />
+
+    <ImageView
+        android:id="@+id/iv_cover"
+        android:layout_width="@dimen/dp_251"
+        android:layout_height="@dimen/dp_220"
+        android:layout_gravity="bottom|center_vertical|center_horizontal|center"
+        android:layout_marginTop="@dimen/dp_7"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_teacher_header_place_holder"
+        app:layout_constraintLeft_toLeftOf="0"
+        app:layout_constraintRight_toRightOf="0"
+        app:layout_constraintTop_toTopOf="0" />
+
+    <ImageView
+        android:id="@+id/iv_course_type"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_16"
+        android:layout_marginStart="@dimen/dp_15"
+        android:layout_marginTop="@dimen/dp_17"
+        android:src="@drawable/ic_home_recommend_video"
+        app:layout_constraintLeft_toLeftOf="0"
+        app:layout_constraintTop_toTopOf="0" />
+
+    <TextView
+        android:id="@+id/tv_commend_name_and_course_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_60"
+        android:includeFontPadding="false"
+        android:text="郭兰春   123课时"
+        android:textColor="#ff4f4f4f"
+        android:textSize="@dimen/sp_11"
+        app:layout_constraintLeft_toLeftOf="@+id/iv_course_type"
+        app:layout_constraintTop_toBottomOf="@+id/iv_course_type" />
+
+    <TextView
+        android:id="@+id/tv_commend_course_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_8"
+        android:includeFontPadding="false"
+        android:text="健康管理师线下公开课"
+        android:textColor="#ffffffff"
+        android:textSize="@dimen/sp_15"
+        app:layout_constraintLeft_toLeftOf="@+id/iv_course_type"
+        app:layout_constraintTop_toBottomOf="@+id/tv_commend_name_and_course_count" />
+
+    <TextView
+        android:id="@+id/tv_commend_course_desc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="@dimen/dp_10"
+        android:ellipsize="end"
+        android:includeFontPadding="false"
+        android:lines="1"
+        android:text="走进“临床”考情分析、复习规划和方法复习规划和方法"
+        android:textColor="#ffdcdcdc"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintLeft_toLeftOf="@+id/iv_course_type"
+        app:layout_constraintRight_toLeftOf="@+id/tv_price_type"
+        app:layout_constraintTop_toBottomOf="@+id/tv_commend_course_name" />
+
+    <TextView
+        android:id="@+id/tv_commend_label1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/sp_9"
+        android:layout_marginBottom="@dimen/dp_12"
+        android:background="@drawable/shape_bg_rectangle_radius2_white_f4f4f4"
+        android:includeFontPadding="false"
+        android:paddingStart="@dimen/dp_4"
+        android:paddingTop="@dimen/dp_3"
+        android:paddingEnd="@dimen/dp_4"
+        android:paddingBottom="@dimen/dp_3"
+        android:text="基础课程"
+        android:textColor="#dcdcdc"
+        android:textSize="@dimen/sp_11"
+        app:layout_constraintLeft_toLeftOf="@+id/iv_course_type"
+        app:layout_constraintTop_toBottomOf="@+id/tv_commend_course_desc" />
+
+    <TextView
+        android:id="@+id/tv_commend_label2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_5"
+        android:layout_marginTop="@dimen/sp_9"
+        android:background="@drawable/shape_bg_rectangle_radius2_white_f4f4f4"
+        android:includeFontPadding="false"
+        android:paddingStart="@dimen/dp_4"
+        android:paddingTop="@dimen/dp_3"
+        android:paddingEnd="@dimen/dp_4"
+        android:paddingBottom="@dimen/dp_3"
+        android:text="基础课程"
+        android:textColor="#ffdcdcdc"
+        android:textSize="@dimen/sp_11"
+        app:layout_constraintLeft_toRightOf="@+id/tv_commend_label1"
+        app:layout_constraintTop_toBottomOf="@+id/tv_commend_course_desc" />
+
+    <TextView
+        android:id="@+id/tv_commend_discount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_15"
+        android:background="@drawable/shape_bg_rectangle_radius2_white_border_f85801"
+        android:includeFontPadding="false"
+        android:paddingStart="@dimen/dp_4"
+        android:paddingTop="@dimen/dp_3"
+        android:paddingEnd="@dimen/dp_4"
+        android:paddingBottom="@dimen/dp_3"
+        android:text="三人拼团  先领劵后拼团"
+        android:textColor="#fff85801"
+        android:textSize="@dimen/sp_11"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_commend_label1"
+        app:layout_constraintRight_toRightOf="0"
+        app:layout_constraintTop_toTopOf="@+id/tv_commend_label1" />
+
+    <TextView
+        android:id="@+id/tv_attention"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/dp_15"
+        android:includeFontPadding="false"
+        android:text="单独购买不享有计划服务"
+        android:textColor="#dcdcdc"
+        android:textSize="@dimen/sp_11"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_commend_label1"
+        app:layout_constraintRight_toRightOf="0"
+        app:layout_constraintTop_toTopOf="@+id/tv_commend_label1" />
+
+    <TextView
+        android:id="@+id/tv_commend_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_6"
+        android:includeFontPadding="false"
+        android:text="1280.00"
+        android:textColor="#fff84701"
+        android:textSize="@dimen/sp_19"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tv_attention"
+        app:layout_constraintRight_toRightOf="@+id/tv_attention" />
+
+    <TextView
+        android:id="@+id/tv_price_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_3"
+        android:text="¥"
+        android:textColor="#fff84701"
+        android:textSize="@dimen/sp_11"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_commend_price"
+        app:layout_constraintRight_toLeftOf="@+id/tv_commend_price" />
+
+    <TextView
+        android:id="@+id/tv_primary_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_6"
+        android:includeFontPadding="false"
+        android:text="¥1880.00"
+        android:textColor="#dcdcdc"
+        android:textSize="@dimen/sp_11"
+        app:layout_constraintBottom_toTopOf="@+id/tv_commend_price"
+        app:layout_constraintRight_toRightOf="@+id/tv_commend_price" />-->
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,7 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:layout_height="56dp"
+    android:orientation="horizontal"
+    tools:context="com.zy.lib_nav.NavView">
 
+    <com.zy.lib_nav.NavItemView
+        android:id="@+id/tab_home"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        app:normalLottieIcon="lottie/tab_home.json"
+        app:normalTitle="首页"
+        app:selectLottieIcon="lottie/tab_home.json"
+        app:selectTitle="首页" />
+
+    <com.zy.lib_nav.NavItemView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        app:normalLottieIcon="lottie/tab_course.json"
+        app:normalTitle="学习"
+        app:selectLottieIcon="lottie/tab_course.json"
+        app:selectTitle="学习" />
+
+    <com.zy.lib_nav.NavItemView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        app:normalLottieIcon="lottie/tab_account.json"
+        app:normalTitle="我的"
+        app:selectLottieIcon="lottie/tab_account.json"
+        app:selectTitle="我的" />
 </LinearLayout>

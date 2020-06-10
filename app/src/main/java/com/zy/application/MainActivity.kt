@@ -7,6 +7,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.zy.application.databinding.ActivityMainBinding
+import com.zy.lib_nav.NavView
 
 class MainActivity : AppCompatActivity() {
     private lateinit var viewBinding: ActivityMainBinding
@@ -14,13 +15,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         viewBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
-
-        viewBinding.navView.addItem("首页","lottie/tab_home.json")
-        viewBinding.navView.addItem("分类","lottie/tab_classify.json")
-        viewBinding.navView.addItem("发现","lottie/tab_account.json")
-        viewBinding.navView.addItem("学习","lottie/tab_course.json")
-        viewBinding.navView.addItem("账号","lottie/tab_note.json")
-        viewBinding.navView.addItem("账号","lottie/tab_note.json")
+        viewBinding.navView.selectTab(NavView.Tab.HOME)
       /*  val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.navigation_home,

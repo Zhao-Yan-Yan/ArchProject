@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="NavItemView">
+        <!--默认状态-->
+        <!--标题-->
+        <attr name="normalTitle" format="string" />
+        <!--颜色-->
+        <attr name="normalTitleColor" format="color" />
+        <!--图标-->
+        <attr name="normalLottieIcon" format="string" />
+        <!--图标着色-->
+        <attr name="normaLottieIconTintColor" format="color" />
+        <!--选中状态-->
+        <!--标题-->
+        <attr name="selectTitle" format="string" />
+        <!--颜色-->
+        <attr name="selectTitleColor" format="color" />
+        <!--图标-->
+        <attr name="selectLottieIcon" format="string" />
+        <!--图标着色-->
+        <attr name="selectLottieIconTintColor" format="color" />
+    </declare-styleable>
+</resources>

@@ -1,66 +1,80 @@
 package com.zy.lib_nav
 
 import android.content.Context
-import android.os.Build
 import android.util.AttributeSet
-import android.view.Gravity
+import android.util.Log
 import android.view.LayoutInflater
-import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.LinearLayout
 import com.zy.lib_nav.databinding.NavViewBinding
 
-class NavView : LinearLayout {
-    lateinit var viewBinding: NavViewBinding
-    var mWidth: Int = 0
-    private var navItems = arrayListOf<NavItemView>()
-    var currentSelectHashCode: Int = 0
-    var lastSelectHashCode: Int = 0
+class NavView : FrameLayout {
+    private var viewBinding: NavViewBinding
+    private var itemViews = arrayListOf<NavItemView>()
+    private var defaultSelect: Tab = Tab.HOME
+    private var currentSelect: Tab = defaultSelect
+    private val onNavBarClickListener: OnNavBarClickListener? = null
 
     constructor(context: Context) : this(context, null)
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
         viewBinding = NavViewBinding.inflate(LayoutInflater.from(context), this, true)
-        for (navItemView in navItems) {
-            viewBinding.root.addView(navItemView)
-        }
-    }
-
-    fun addItem(title: String, iconAssetsName: String) {
-        if (navItems.size < MAX_ITEMS) {
-            val navItemView = NavItemView.generateNavItemView(context, title, iconAssetsName)
-            navItemView.setOnClickListener {
-                lastSelectHashCode = currentSelectHashCode
-                for (navItem in navItems) {
-                    if (navItem.hashCode() == lastSelectHashCode) {
-                        navItem.select = false
-                    }
-                }
-                currentSelectHashCode = navItemView.hashCode()
-                navItemView.select = (navItemView.hashCode() == currentSelectHashCode)
-            }
-            if (navItems.size > 0) {
-                navItemView.layoutParams = LayoutParams(mWidth / navItems.size, ViewGroup.LayoutParams.WRAP_CONTENT, 1.0f)
-            }
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                navItemView.foregroundGravity = Gravity.CENTER
-            }
-            navItems.add(navItemView)
-            viewBinding.root.addView(navItemView)
-        }
-    }
-
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-        mWidth = measuredWidth
     }
 
     override fun onFinishInflate() {
+        val ll = getChildAt(0) as LinearLayout
+        for (index in 0 until ll.childCount) {
+            val item = ll.getChildAt(index)
+            if (item is NavItemView) {
+                //根据index 设置tab标签
+                item.tab = Tab.valueOfIndex(index)
+                itemViews.add(item)
+            }
+        }
+        for (index in 0 until itemViews.size) {
+            val navItemView = itemViews[index]
+            navItemView.setOnClickListener {
+                selectTab(Tab.valueOfIndex(index))
+            }
+        }
         super.onFinishInflate()
-
     }
 
-    companion object {
-        const val MAX_ITEMS = 5
+    fun selectTab(tab: Tab) {
+        for (index in 0 until itemViews.size) {
+            val navItemView = itemViews[index]
+            if (navItemView.tab == tab) {
+                if (currentSelect.index != index) {
+                    itemViews[currentSelect.index].resetNavItem()
+                    currentSelect = Tab.valueOfIndex(index)
+                    navItemView.checkNavItem()
+                    onNavBarClickListener?.onNavClick(navItemView, navItemView.tab)
+                }
+                return
+            }
+        }
     }
+
+    interface OnNavBarClickListener {
+        fun onNavClick(navItemView: NavItemView, tab: Tab)
+    }
+
+    enum class Tab(val index: Int) {
+        HOME(0),
+        LEARN(1),
+        USER_CENTER(2);
+
+        companion object {
+            fun valueOfIndex(index: Int): Tab {
+                return when (index) {
+                    0 -> HOME
+                    1 -> LEARN
+                    2 -> USER_CENTER
+                    else -> HOME
+                }
+            }
+        }
+    }
+
 }
 
