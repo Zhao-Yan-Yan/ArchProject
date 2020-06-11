@@ -5,7 +5,6 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
 import android.widget.LinearLayout
-import androidx.viewpager2.widget.ViewPager2
 import com.zy.lib_nav.databinding.NavViewBinding
 
 class NavView : FrameLayout {
