@@ -33,5 +33,6 @@ dependencies {
     implementation googleLibs.appcompat
     implementation googleLibs.lifecycle_extensions
     implementation googleLibs.recyclerview
+    implementation otherLibs.statusbarutil
 
 }

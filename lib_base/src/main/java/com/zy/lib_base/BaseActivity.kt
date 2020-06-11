@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
+import com.jaeger.library.StatusBarUtil
 import java.lang.reflect.ParameterizedType
 
 abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
@@ -13,7 +14,12 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         viewBinding = getRealViewBinding()
         setContentView(viewBinding.root)
+        initStatusBar()
         init()
+    }
+
+    private fun initStatusBar() {
+        StatusBarUtil.setTransparent(this)
     }
 
     abstract fun init()

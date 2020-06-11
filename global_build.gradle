@@ -29,6 +29,7 @@ ext {
     otherLibs = [
             lottie: 'com.airbnb.android:lottie:3.4.1',
             glide: 'com.github.bumptech.glide:glide:4.11.0',
+            statusbarutil: 'com.jaeger.statusbarutil:library:1.5.1',
     ]
 
     testLibs = [
