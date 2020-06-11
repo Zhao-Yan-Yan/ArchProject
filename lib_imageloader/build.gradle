@@ -11,6 +11,7 @@ android {
         targetSdkVersion androidConfig.targetSdkVersion
         versionCode 1
         versionName "1.0"
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
@@ -21,9 +22,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    buildFeatures {
-        viewBinding = true
-    }
 }
 
 dependencies {
@@ -31,7 +29,5 @@ dependencies {
     implementation googleLibs.kotlin_stdlib
     implementation googleLibs.core_ktx
     implementation googleLibs.appcompat
-    implementation googleLibs.lifecycle_extensions
-    implementation googleLibs.recyclerview
-
+    implementation otherLibs.glide
 }

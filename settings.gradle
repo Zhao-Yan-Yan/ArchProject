@@ -1,3 +1,4 @@
+include ':lib_imageloader'
 include ':lib_lottie_nav_bar'
 include ':lib_base'
 include ':lib_downloader'

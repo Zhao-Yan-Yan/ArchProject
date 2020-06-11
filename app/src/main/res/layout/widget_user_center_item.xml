@@ -7,7 +7,7 @@
     android:paddingStart="@dimen/common_margin"
     android:paddingTop="@dimen/common_margin"
     android:paddingEnd="@dimen/common_margin"
-    tools:background="@android:color/white"
+    android:background="?android:attr/selectableItemBackground"
     tools:context="com.zy.application.widget.UserCenterItemView">
 
     <ImageView

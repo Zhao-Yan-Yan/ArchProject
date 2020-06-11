@@ -8,18 +8,18 @@
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.zy.application.ui.home.HomeFragment"
-        android:label="@string/title_home"
+        android:label="首页"
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.zy.application.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_learn_center"
+        android:name="com.zy.application.ui.learncenter.LearnCenterFragment"
+        android:label="学习"
+        tools:layout="@layout/fragment_learn_center" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.zy.application.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_user_center"
+        android:name="com.zy.application.ui.usercenter.UserCenterFragment"
+        android:label="我的"
+        tools:layout="@layout/fragment_user_center" />
 </navigation>

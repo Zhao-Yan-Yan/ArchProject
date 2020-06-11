@@ -1,34 +1,31 @@
-package com.zy.application.ui.notifications
+package com.zy.application.ui.usercenter
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
-import com.zy.application.R
-import com.zy.application.databinding.FragmentNotificationsBinding
+import androidx.viewbinding.ViewBinding
+import com.zy.application.databinding.FragmentUserCenterBinding
+import com.zy.lib_base.BaseFragment
 import com.zy.lib_downloader.Downloader
 
-class NotificationsFragment : Fragment() {
-
-    private lateinit var notificationsViewModel: NotificationsViewModel
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        notificationsViewModel = ViewModelProviders.of(this).get(NotificationsViewModel::class.java)
+class UserCenterFragment : BaseFragment<FragmentUserCenterBinding>() {
+    private lateinit var notificationsViewModel: UserCenterViewModel
+    override fun init() {
+        notificationsViewModel = ViewModelProviders.of(this).get(UserCenterViewModel::class.java)
         val viewModelProvider = ViewModelProvider(this)
-        val viewBinding = FragmentNotificationsBinding.inflate(inflater)
         viewBinding.uci.setOnClickListener {
-            context?.let { it -> Downloader.download(it, "https://www.kotlincn.net/docs/kotlin-docs.pdf") }
+//            context?.let { it -> Downloader.download(it, "https://www.kotlincn.net/docs/kotlin-docs.pdf") }
         }
         // val textView: TextView = root.findViewById(R.id.text_notifications)
         /*   notificationsViewModel.text.observe(viewLifecycleOwner, Observer {
                textView.text = it
-           })*/
-        return viewBinding.root
+           })**/
+        Log.e("TAG", "onCreateView: UserCenterFragment")
     }
 }
 

@@ -1,17 +1,11 @@
 package com.zy.lib_nav
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
+import android.graphics.Rect
 import android.util.AttributeSet
-import android.util.Log
-import android.view.Gravity
 import android.view.LayoutInflater
-import android.view.ViewGroup
-import android.widget.FrameLayout
-import android.widget.LinearLayout
 import android.widget.RelativeLayout
-import androidx.constraintlayout.widget.ConstraintLayout
 import com.zy.lib_nav.databinding.NavItemBinding
 
 class NavItemView : RelativeLayout {
@@ -67,4 +61,5 @@ class NavItemView : RelativeLayout {
             it.navIcon.setColorFilter(normaLottieIconTintColor)
         }
     }
+
 }

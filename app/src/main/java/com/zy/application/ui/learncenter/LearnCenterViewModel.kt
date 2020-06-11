@@ -1,13 +1,13 @@
-package com.zy.application.ui.notifications
+package com.zy.application.ui.learncenter
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class NotificationsViewModel : ViewModel() {
+class LearnCenterViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is notifications Fragment"
+        value = "This is dashboard Fragment"
     }
     val text: LiveData<String> = _text
 }

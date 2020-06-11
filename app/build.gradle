@@ -3,17 +3,16 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    compileSdkVersion androidConfig.compileSdkVersion
+    buildToolsVersion androidConfig.buildToolsVersion
 
     defaultConfig {
         applicationId "com.zy.application"
-        minSdkVersion 19
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        minSdkVersion androidConfig.minSdkVersion
+        targetSdkVersion androidConfig.targetSdkVersion
+        versionCode androidConfig.versionCode
+        versionName androidConfig.versionName
+        testInstrumentationRunner testLibs.AndroidJUnitRunner
     }
 
     buildTypes {
@@ -29,30 +28,30 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    viewBinding {
-        enabled = true
+    buildFeatures{
+        viewBinding=true
     }
 }
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.3.0'
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'com.google.android.material:material:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
-    implementation 'androidx.navigation:navigation-fragment:2.2.2'
-    implementation 'androidx.navigation:navigation-ui:2.2.2'
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.2.2'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.2.2'
-    implementation 'com.google.android.material:material:1.1.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation googleLibs.kotlin_stdlib
+    implementation googleLibs.appcompat
+    implementation googleLibs.core_ktx
+    implementation googleLibs.material
+    implementation googleLibs.constraintlayout
+    implementation googleLibs.vectordrawable
+    implementation googleLibs.navigation_fragment
+    implementation googleLibs.navigation_ui
+    implementation googleLibs.lifecycle_extensions
+    implementation googleLibs.navigation_fragment_ktx
+    implementation googleLibs.navigation_ui_ktx
+    testImplementation testLibs.junit
+    androidTestImplementation testLibs.junit_ext
+    androidTestImplementation testLibs.espresso_core
 
     implementation project(":lib_downloader")
+    implementation project(":lib_base")
     implementation project(":lib_lottie_nav_bar")
-    implementation "com.airbnb.android:lottie:3.4.1"
+    implementation otherLibs.lottie
 }
