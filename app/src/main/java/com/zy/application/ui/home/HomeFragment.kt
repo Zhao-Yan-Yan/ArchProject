@@ -18,22 +18,20 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
         viewBinding.rlvMain.adapter = MergeAdapter(
             HomeBanner(), NotificationAdapter(), HomeBanner()
         )
+
         viewModel.getHomeData()
+
         viewModel.homeListData.observe(viewLifecycleOwner, Observer {
             Log.e("TAG", "init: ${Thread.currentThread()}")
             Toast.makeText(context, it.title, Toast.LENGTH_SHORT).show()
         })
-        viewModel.loadingChange.showDialog.observe(viewLifecycleOwner, object : Observer<String?> {
-            override fun onChanged(t: String?) {
-                dialog = AlertDialog.Builder(requireContext()).setTitle("提示").setMessage(t).create()
-                dialog.show()
-            }
+
+        viewModel.loadingChange.showDialog.observe(viewLifecycleOwner, Observer { t ->
+            dialog = AlertDialog.Builder(requireContext()).setTitle("提示").setMessage(t).create()
+            dialog.show()
         })
-        viewModel.loadingChange.dismissDialog.observe(viewLifecycleOwner, object : Observer<Void?> {
-            override fun onChanged(t: Void?) {
-                dialog.dismiss()
-            }
-        })
+
+        viewModel.loadingChange.dismissDialog.observe(viewLifecycleOwner, Observer { dialog.dismiss() })
     }
 
 }
