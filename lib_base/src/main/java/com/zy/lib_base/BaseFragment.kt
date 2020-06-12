@@ -1,23 +1,21 @@
 package com.zy.lib_base
 
+import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
-import com.jaeger.library.StatusBarUtil
 import java.lang.reflect.ParameterizedType
 
 abstract class BaseFragment<VM : BaseViewModel, VB : ViewBinding> : Fragment() {
     lateinit var viewBinding: VB
     lateinit var viewModel: VM
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    var loadingDialog: Dialog? = null
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         viewBinding = getRealViewBinding(container)
         viewModel = createViewModel()
         return viewBinding.root
@@ -26,13 +24,16 @@ abstract class BaseFragment<VM : BaseViewModel, VB : ViewBinding> : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         init()
+        registerStateChange()
     }
 
     abstract fun init()
 
     private fun createViewModel(): VM {
-        return ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory(requireActivity().application))
-            .get(getVmClazz(this))
+        return ViewModelProvider(
+            this,
+            ViewModelProvider.AndroidViewModelFactory(requireActivity().application)
+        ).get(getVmClazz(this))
     }
 
     private fun <VM> getVmClazz(obj: Any): VM {

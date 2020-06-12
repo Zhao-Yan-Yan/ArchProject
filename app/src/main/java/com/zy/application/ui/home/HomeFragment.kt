@@ -1,8 +1,6 @@
 package com.zy.application.ui.home
 
 import android.util.Log
-import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.MergeAdapter
@@ -12,26 +10,19 @@ import com.zy.application.ui.courselist.NotificationAdapter
 import com.zy.lib_base.BaseFragment
 
 class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
-    lateinit var dialog: AlertDialog
     override fun init() {
         viewBinding.rlvMain.layoutManager = LinearLayoutManager(context)
         viewBinding.rlvMain.adapter = MergeAdapter(
             HomeBanner(), NotificationAdapter(), HomeBanner()
         )
 
-        viewModel.getHomeData()
+        //viewModel.getHomeData()
+        viewModel.requestWithPageStateChange()
 
         viewModel.homeListData.observe(viewLifecycleOwner, Observer {
-            Log.e("TAG", "init: ${Thread.currentThread()}")
-            Toast.makeText(context, it.title, Toast.LENGTH_SHORT).show()
+            Log.e("TAG", "init: ${it.title}")
         })
 
-        viewModel.loadingChange.showDialog.observe(viewLifecycleOwner, Observer { t ->
-            dialog = AlertDialog.Builder(requireContext()).setTitle("提示").setMessage(t).create()
-            dialog.show()
-        })
-
-        viewModel.loadingChange.dismissDialog.observe(viewLifecycleOwner, Observer { dialog.dismiss() })
     }
 
 }

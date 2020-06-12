@@ -6,7 +6,7 @@ import com.zy.application.R
 import com.zy.application.databinding.ActivityMainBinding
 import com.zy.lib_base.BaseActivity
 
-class MainActivity : BaseActivity<ActivityMainBinding>() {
+class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
 
     override fun init() {
         val builder = NavOptions.Builder()

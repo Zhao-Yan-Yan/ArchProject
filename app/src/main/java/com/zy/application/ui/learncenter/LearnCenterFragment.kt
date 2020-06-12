@@ -10,7 +10,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.lifecycleScope
+import com.google.gson.Gson
 import com.zy.application.R
+import com.zy.application.data.model.TestEntity
 import com.zy.application.databinding.FragmentLearnCenterBinding
 import com.zy.lib_base.BaseFragment
 import kotlinx.coroutines.delay
@@ -20,14 +22,10 @@ class LearnCenterFragment : BaseFragment<LearnCenterViewModel, FragmentLearnCent
 
 
     override fun init() {
-        viewModel.text.observe(viewLifecycleOwner, Observer {
-            viewBinding.textDashboard.text = it
-        })
+        viewModel.request()
 
-        lifecycleScope.launch {
-            delay(1000)
-            viewModel.changeValue()
-        }
-        Log.e("TAG", "onCreateView: LearnCenterFragment")
+        viewModel._homeListData.observe(viewLifecycleOwner, Observer {
+            viewBinding.textDashboard.text = Gson().toJson(it)
+        })
     }
 }

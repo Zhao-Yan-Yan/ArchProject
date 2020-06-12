@@ -4,15 +4,24 @@ import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.zy.application.data.model.TestEntity
+import com.zy.application.net.RetrofitUtils
+import com.zy.application.net.requestWithDialog
+import com.zy.application.net.requestWithPageStateChange
 import com.zy.lib_base.BaseViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 class LearnCenterViewModel(application: Application) : BaseViewModel(application) {
-    fun changeValue() {
-        _text.postValue("这个是改变的值")
+     val _homeListData = MutableLiveData<TestEntity>()
+    fun request() {
+        requestWithDialog(
+            { testData() },
+            { _homeListData.postValue(it as TestEntity) }
+        )
     }
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is dashboard Fragment"
+    private suspend fun testData() = withContext(Dispatchers.IO) {
+        RetrofitUtils.mainApiService.test("https://jsonplaceholder.typicode.com/todos/1")
     }
-    val text: LiveData<String> = _text
 }
