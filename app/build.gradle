@@ -50,8 +50,17 @@ dependencies {
     androidTestImplementation testLibs.junit_ext
     androidTestImplementation testLibs.espresso_core
 
+    implementation otherLibs.lottie
+    implementation otherLibs.circleimageview
+    implementation otherLibs.retrofit2
+    implementation otherLibs.retrofit2_converter_gson
+    implementation otherLibs.gson
+
     implementation project(":lib_downloader")
     implementation project(":lib_base")
     implementation project(":lib_lottie_nav_bar")
-    implementation otherLibs.lottie
+    implementation project(":lib_banner")
+    implementation project(":lib_imageloader")
+
+    debugImplementation otherLibs.leakcanary
 }

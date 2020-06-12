@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
+import com.gyf.immersionbar.ImmersionBar
 import com.jaeger.library.StatusBarUtil
 import java.lang.reflect.ParameterizedType
 
@@ -20,6 +21,8 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
 
     private fun initStatusBar() {
         StatusBarUtil.setTransparent(this)
+//        StatusBarUtil.setTransparentForImageView(this,null)
+        StatusBarUtil.setLightMode(this)
     }
 
     abstract fun init()

@@ -4,17 +4,12 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 
-class BaseViewModel(application: Application) :AndroidViewModel(application) {
+open class BaseViewModel(application: Application) : AndroidViewModel(application) {
 
-    val loadingChange: UiLoadingChange by lazy { UiLoadingChange() }
+    val loadingChange: LoadingChange by lazy { LoadingChange() }
 
-    /**
-     * 内置封装好的可通知Activity/fragment 显示隐藏加载框 因为需要跟网络请求显示隐藏loading配套才加的，不然我加他个鸡儿加
-     */
-    inner class UiLoadingChange {
-        //显示加载框
+    inner class LoadingChange {
         val showDialog by lazy { MutableLiveData<String>() }
-        //隐藏
         val dismissDialog by lazy { MutableLiveData<Void>() }
     }
 }

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
+import com.jaeger.library.StatusBarUtil
 import java.lang.reflect.ParameterizedType
 
 abstract class BaseFragment<VM : BaseViewModel, VB : ViewBinding> : Fragment() {
@@ -18,6 +19,7 @@ abstract class BaseFragment<VM : BaseViewModel, VB : ViewBinding> : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         viewBinding = getRealViewBinding(container)
+        viewModel = createViewModel()
         return viewBinding.root
     }
 
@@ -28,19 +30,19 @@ abstract class BaseFragment<VM : BaseViewModel, VB : ViewBinding> : Fragment() {
 
     abstract fun init()
 
-    fun createViewModel(): VM {
+    private fun createViewModel(): VM {
         return ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory(requireActivity().application))
             .get(getVmClazz(this))
     }
 
     private fun <VM> getVmClazz(obj: Any): VM {
-        val type = javaClass.genericSuperclass as ParameterizedType
+        val type = obj.javaClass.genericSuperclass as ParameterizedType
         return type.actualTypeArguments[0] as VM
     }
 
     private fun getRealViewBinding(container: ViewGroup?): VB {
         val type = javaClass.genericSuperclass as ParameterizedType
-        val aClass = type.actualTypeArguments[0] as Class<*>
+        val aClass = type.actualTypeArguments[1] as Class<*>
         val method = aClass.getDeclaredMethod("inflate", LayoutInflater::class.java, ViewGroup::class.java, Boolean::class.java)
         return method.invoke(null, layoutInflater, container, false) as VB
     }

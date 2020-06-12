@@ -29,5 +29,5 @@ dependencies {
     implementation googleLibs.kotlin_stdlib
     implementation googleLibs.core_ktx
     implementation googleLibs.appcompat
-    implementation otherLibs.glide
+    api otherLibs.glide
 }

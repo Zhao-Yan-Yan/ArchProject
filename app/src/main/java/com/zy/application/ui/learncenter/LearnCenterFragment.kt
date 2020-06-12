@@ -16,18 +16,17 @@ import com.zy.lib_base.BaseFragment
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class LearnCenterFragment : BaseFragment<FragmentLearnCenterBinding>() {
+class LearnCenterFragment : BaseFragment<LearnCenterViewModel, FragmentLearnCenterBinding>() {
 
-    private lateinit var dashboardViewModel: LearnCenterViewModel
 
     override fun init() {
-        dashboardViewModel = ViewModelProviders.of(this).get(LearnCenterViewModel::class.java)
-        dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
+        viewModel.text.observe(viewLifecycleOwner, Observer {
             viewBinding.textDashboard.text = it
         })
 
         lifecycleScope.launch {
             delay(1000)
+            viewModel.changeValue()
         }
         Log.e("TAG", "onCreateView: LearnCenterFragment")
     }
